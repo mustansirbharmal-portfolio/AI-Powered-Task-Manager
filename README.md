@@ -275,6 +275,40 @@ The application follows a modern full-stack architecture with clear separation o
 - **Database**: MongoDB for flexible document storage
 - **Authentication**: JWT-based token authentication for stateless authorization
 
+### Database Schema
+
+The application uses MongoDB with the following collections:
+![MongoDB Users Database Schema](https://github.com/user-attachments/assets/090e0eb1-dbb8-4eb1-bff1-198739654101)
+![MongoDB Tasks Database Schema](https://github.com/user-attachments/assets/e8e6775f-1747-475d-9e99-ee4e8d7cdf2c)
+
+
+#### Users Collection
+
+The `users` collection stores user account information:
+
+- `_id`: MongoDB ObjectId (unique identifier)
+- `name`: User's full name
+- `email`: User's email address (unique)
+- `password`: Hashed password for authentication
+- `createdAt`: Timestamp when the user account was created
+- `updatedAt`: Timestamp when the user account was last updated
+
+#### Tasks Collection
+
+The `tasks` collection stores all task-related information:
+
+- `_id`: MongoDB ObjectId (unique identifier)
+- `title`: Task title
+- `description`: Detailed description of the task
+- `dueDate`: Date when the task is due
+- `priority`: Task priority level ("low", "medium", or "high")
+- `userId`: Reference to the user who owns the task
+- `summary`: AI-generated summary of the task description (optional)
+- `createdAt`: Timestamp when the task was created
+- `updatedAt`: Timestamp when the task was last updated
+
+The schema design enables efficient querying of tasks by user, priority, and due date while maintaining the relationships between users and their tasks.
+
 ### Project Structure
 
 ```
